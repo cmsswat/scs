@@ -1,0 +1,7 @@
+[
+  {
+    "id": "INV-1", "date": "2026-07-28", "customer": "Walk-in Customer", "phone": "",
+    "items": [ { "id": "P-5", "name": "Logitech Wireless Mouse", "qty": 2, "price": 1650, "cost": 1100 } ],
+    "discount": 0, "total": 3300, "profit": 1100
+  }
+]

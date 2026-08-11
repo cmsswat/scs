@@ -1,0 +1,9 @@
+{
+  "shopName": "Swat Computer Shop",
+  "address": "Main Bazar, Mingora, Swat",
+  "phone": "0946-000000",
+  "currency": "Rs",
+  "lowStock": 5,
+  "username": "admin",
+  "password": "admin123"
+}

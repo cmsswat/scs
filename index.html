@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login | Swat Computer Shop Management System</title>
+<meta name="description" content="Login to the Swat Computer Shop Management System to manage purchases, stock, sales, invoices and profit reports.">
+<link rel="icon" href="images/logo.png">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-page">
+  <main class="login-box">
+    <img src="images/logo.png" alt="Swat Computer Shop logo">
+    <h1 id="shopName">Swat Computer Shop</h1>
+    <p class="sub">Management System — Login to continue</p>
+    <form id="loginForm" autocomplete="off">
+      <div class="field">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Username">
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="••••••••">
+      </div>
+      <button class="btn" type="submit">🔐 Login</button>
+      <div class="error" id="error"></div>
+    </form>
+    <p class="credits">DIT Final Project — Fakhr Un Nisa, Rabia, Mehreen</p>
+  </main>
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script>
+  /* Login — user: Fari / password: cms@123 */
+  const APP_USER = 'Fari';
+  const APP_PASS = 'cms@123';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    DB.seed();
+    const s = DB.settings();
+    s.username = APP_USER;
+    s.password = APP_PASS;
+    DB.saveSettings(s);
+    document.getElementById('shopName').textContent = s.shopName;
+    if (DB.currentUser()) location.replace('dashboard.html');
+
+    document.getElementById('loginForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const u = document.getElementById('username').value.trim();
+      const p = document.getElementById('password').value;
+      const err = document.getElementById('error');
+      if (!u || !p) { err.textContent = 'Please enter username and password.'; return; }
+      if (u === APP_USER && p === APP_PASS) {
+        sessionStorage.setItem('scs_user', JSON.stringify({ username: u, at: Date.now() }));
+        location.href = 'dashboard.html';
+      } else {
+        err.textContent = 'Invalid username or password.';
+      }
+    });
+  });
+  </script>
+</body>
+</html>

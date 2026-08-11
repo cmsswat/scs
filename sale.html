@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Sale | Swat Computer Shop</title>
+<meta name="description" content="Create a customer bill, calculate total and profit automatically and print the invoice.">
+<link rel="icon" href="images/logo.png">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/sale.css">
+<link rel="stylesheet" href="css/print.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <header class="topbar" id="topbar"></header>
+    <section class="grid cols-2">
+      <div class="card">
+        <h3>🛒 Add items</h3>
+        <div class="row">
+          <div class="field"><label for="date">Date</label><input type="date" id="date"></div>
+          <div class="field"><label for="customer">Customer name</label><input type="text" id="customer" placeholder="Walk-in Customer"></div>
+        </div>
+        <div class="field"><label for="phone">Customer phone (optional)</label><input type="text" id="phone" placeholder="03xx-xxxxxxx"></div>
+        <div class="field"><label for="productSel">Product</label><select id="productSel"></select></div>
+        <div class="row">
+          <div class="field"><label for="itemQty">Quantity</label><input type="number" id="itemQty" min="1" value="1"></div>
+          <div class="field"><label>&nbsp;</label><button class="btn" id="addItem" type="button">➕ Add to bill</button></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🧾 Bill summary</h3>
+        <div id="cart"></div>
+        <div class="field" style="margin-top:14px"><label for="discount">Discount</label><input type="number" id="discount" min="0" value="0"></div>
+        <table><tbody>
+          <tr><th>Subtotal</th><td><b id="sub">Rs 0</b></td></tr>
+          <tr><th>Grand total</th><td><b id="total">Rs 0</b></td></tr>
+          <tr><th>Profit on this bill</th><td><b id="profit">Rs 0</b></td></tr>
+        </tbody></table>
+        <button class="btn green" id="saveSale" type="button" style="margin-top:14px">💾 Save sale &amp; create invoice</button>
+      </div>
+    </section>
+    <section class="card" style="margin-top:18px"><h3>📋 Recent sales</h3><div id="salesList"></div></section>
+  </main>
+</div>
+<div id="toast"></div>
+<script src="js/utils.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/app.js"></script>
+<script src="js/sale.js"></script>
+</body>
+</html>

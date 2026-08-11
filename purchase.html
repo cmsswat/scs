@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Purchase Products | Swat Computer Shop</title>
+<meta name="description" content="Record supplier purchases, set sale price and see profit per unit automatically.">
+<link rel="icon" href="images/logo.png">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/purchase.css">
+<link rel="stylesheet" href="css/print.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <header class="topbar" id="topbar"></header>
+    <section class="grid cols-2">
+      <div class="card">
+        <h3>📥 New purchase</h3>
+        <form id="purchaseForm" autocomplete="off">
+          <div class="row">
+            <div class="field"><label for="date">Date</label><input type="date" id="date"></div>
+            <div class="field"><label for="supplier">Supplier</label><input type="text" id="supplier" placeholder="e.g. Hayat Traders"></div>
+          </div>
+          <div class="field"><label for="product">Product name</label><input type="text" id="product" placeholder="e.g. Dell Latitude Laptop"></div>
+          <div class="row">
+            <div class="field"><label for="category">Category</label>
+              <select id="category">
+                <option>Laptop</option><option>Desktop</option><option>Monitor</option><option>RAM</option>
+                <option>SSD</option><option>HDD</option><option>Printer</option><option>Accessories</option><option>General</option>
+              </select></div>
+            <div class="field"><label for="qty">Quantity</label><input type="number" id="qty" min="1" value="1"></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="cost">Purchase cost (per unit)</label><input type="number" id="cost" min="0" placeholder="0"></div>
+            <div class="field"><label for="price">Sale price (per unit)</label><input type="number" id="price" min="0" placeholder="0"></div>
+          </div>
+          <button class="btn green" type="submit">💾 Save purchase</button>
+        </form>
+      </div>
+      <div class="card">
+        <h3>🧮 Auto calculation</h3>
+        <table>
+          <tbody>
+            <tr><th>Profit per unit</th><td><b id="unitProfit">Rs 0</b></td></tr>
+            <tr><th>Total purchase cost</th><td><b id="totalCost">Rs 0</b></td></tr>
+            <tr><th>Expected total profit</th><td><b id="expProfit">Rs 0</b></td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:14px;font-size:12.5px;color:var(--muted)">
+          Saving a purchase automatically adds the quantity to Product Stock. If the product already exists,
+          its stock is increased and the prices are updated.</p>
+      </div>
+    </section>
+    <section class="card" style="margin-top:18px"><h3>📋 Purchase history</h3><div id="purchaseList"></div></section>
+  </main>
+</div>
+<div id="toast"></div>
+<script src="js/utils.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/app.js"></script>
+<script src="js/purchase.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+@media print{
+  .sidebar,.topbar,.no-print,.btn{display:none!important}
+  body{background:#fff}
+  .main{padding:0}
+  .card{box-shadow:none;border:1px solid #ddd}
+}
